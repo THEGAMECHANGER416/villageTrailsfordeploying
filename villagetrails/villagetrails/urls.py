@@ -19,6 +19,7 @@ from django.urls import path
 from signin.views import user_signin
 from VTToken.views import get_token
 from user.views import UserViewSet
+from listing.views import ListingViewSet
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,5 +27,8 @@ urlpatterns = [
     path('villagetrails/v1/gettoken', get_token),
     path('villagetrails/v1/user', UserViewSet.as_view({'get': 'list', 'patch': 'partial_update'})),
     path('villagetrails/v1/user/<int:pk>', UserViewSet.as_view({'get': 'list', 'patch': 'partial_update'})),
+    path('villagetrails/v1/listing/', ListingViewSet.as_view({'get': 'list', 'post':'create', 'patch': 'partial_update'})),
+    path('villagetrails/v1/listing/<int:pk>',
+         ListingViewSet.as_view({'get': 'list', 'post': 'create', 'patch': 'partial_update'})),
 
 ]

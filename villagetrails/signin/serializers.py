@@ -5,4 +5,4 @@ from .models import VTUser
 class UserViewSerializer(ModelSerializer):
     class Meta:
         model = VTUser
-        fields = ['id', 'phone', 'createdAt','otp']
+        fields = ['id', 'phone', 'name','is_guest', 'createdAt','otp']
